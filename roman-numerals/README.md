@@ -16,8 +16,3 @@ There is no need to be able to convert numbers larger than about 3000. (The Roma
 # Acceptance test
 
 	1999 -> MCMXCIX
-
-# Installation
- 1. Install [composer](https://getcomposer.org/) `curl -sS https://getcomposer.org/installer | php`
-2. `php composer.phar install`
-3. `./vendor/bin/phpunit`
