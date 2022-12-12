@@ -6,8 +6,10 @@ import (
 	"testing"
 )
 
-func TestXXX(t *testing.T) {
-	fizzbuzz.NewFizzBuzz()
+func Test_Returns_100_Values(t *testing.T) {
+	fizzBuzz := fizzbuzz.NewFizzBuzz()
 
-	assert.Equal(t, "xxx", "xxx")
+	values := fizzBuzz.Values()
+
+	assert.Equal(t, 100, len(values))
 }
