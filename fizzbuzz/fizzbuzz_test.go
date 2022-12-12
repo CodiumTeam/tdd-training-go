@@ -23,3 +23,13 @@ func Test_Numbers_not_multiple_does_not_change(t *testing.T) {
 	assert.Equal(t, "2", values[1])
 	assert.Equal(t, "4", values[3])
 }
+
+func Test_Numbers_multiple_of_three_is_fizz(t *testing.T) {
+	fizzBuzz := fizzbuzz.NewFizzBuzz()
+
+	values := fizzBuzz.Values()
+
+	assert.Equal(t, "Fizz", values[2])
+	assert.Equal(t, "Fizz", values[5])
+	assert.Equal(t, "Fizz", values[8])
+}
