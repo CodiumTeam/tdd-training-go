@@ -1,81 +1,29 @@
 # Goal
-Be able to test `printCurrentDate` function.
+Be able to test printCurrentDate function without changing the method signature.
 
+1. Test the code with doubles using a library.
+2. Test the code with doubles created by you.
 # Code to test
-```php
-public function printCurrentDate(): void
-{
-    echo date("Y-m-d H:i:s");
-}
-```
-
+    func (printDate PrintDate) PrintCurrentDate() {
+        today := printDate.calendar.today()
+        printDate.printer.printLine(today.String())
+    }
 # Learnings
 
-- How to build a Mock and Stub manually.
-- How to use PHPUnit or Prophecy to generate the doubles.
+How to use TBD to generate the doubles.
+
+How to build a Mock and Stub manually.
 
 ## Tools
 
-- [PHPUnit](https://phpunit.readthedocs.io/en/9.5/test-doubles.html). The Testing Framework.
-- [Prophecy](https://github.com/phpspec/prophecy). Mocking library.
+### Example of spy
 
-### Example of a Mock
+TBD
+	
+### Example of stub
 
-```php
-/** @test */
-public function should_use_the_external_collaborator(): void
-{
-    # PHPUnit
-    $collaborator = $this->createMock(Collaborator::class);
-    $collaborator->expects(self::once())->method('collaborate');
-    $myClass = new MyClass($collaborator);
+TBD
 
-    $myClass->run();
-
-    # ------------------------------------------------
-
-    # Prophesize
-    $myCollaboratorProphecy = $this->prophesize(Collaborator::class);
-    /** @var Collaborator $collaborator */
-    $collaborator = $myCollaboratorProphecy->reveal();
-    $myClass = new MyClass($collaborator);
-    
-    $myClass->run();
-    
-    $myCollaboratorProphecy->collaborate()->shouldHaveBeCalled();
-}
-```
-
-### Example of a Stub
-```php
-/** @test */
-public function should_return_the_collaborator_response(): void
-{
-    # PHPUnit
-    $collaborator = $this->createStub(Collaborator::class);
-    $collaboratorResponse = 'collaborator response';
-    $collaborator->method('collaborate')->willReturn($collaboratorResponse);
-    $myClass = new MyClass($collaborator);
-
-    $response = $myClass->run();
-
-    self::assertEquals($collaboratorResponse, $response);
-    
-    # ------------------------------------------------
-
-    # Prophesize
-    $myCollaboratorProphecy = $this->prophesize(Collaborator::class);
-    $collaboratorResponse = 'collaborator response';
-    $myCollaboratorProphecy->collaborate()->willReturn($collaboratorResponse);
-    /** @var Collaborator $collaborator */
-    $collaborator = $myCollaboratorProphecy->reveal();
-    $myClass = new MyClass($collaborator);
-    
-    $response = $myClass->run();
-    
-    self::assertEquals($collaboratorResponse, $response);
-}
-```
 
 ## Authors
 Luis Rovirosa [@luisrovirosa](https://www.twitter.com/luisrovirosa)
